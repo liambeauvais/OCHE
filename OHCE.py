@@ -20,7 +20,10 @@ class Palindrome():
         response += f"\n{input[::-1]}"
 
         if input == input[::-1]:
-            response += "\nBien dit"
+            response += f"\n{self.well_said()}"
 
         response += f"\n{self.say_goodbye()}"
         return response
+
+    def well_said(self):
+        return "Bien dit"
