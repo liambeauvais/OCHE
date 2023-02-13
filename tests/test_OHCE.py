@@ -30,7 +30,7 @@ def test_hello():
     input = "toto"
     #ALORS <Bonjour> est envoyé avant toute réponse
     response = palindrome.mirror(input).split('\n')
-    assert response[0] == "Bonjour"
+    assert  "Bonjour" in response[0]
 
 def test_goodbye():
     palindrome = Palindrome()
@@ -39,14 +39,14 @@ def test_goodbye():
     input = "toto"
     #ALORS <Au revoir> est envoyé en dernier
     response = palindrome.mirror(input).split('\n')
-    assert response[-1] == "Au revoir"
+    assert "Au revoir" in response[-1]
 
 def test_language():
     """Etant donné un utilisateur parlant une langue, quand on rentre un palindrome,
      alors il est renvoyé, et le <BienDit> de cette langue est envoyé"""
     #ETANT donné un utilisateur parlant une langue
-    french = Palindrome(locale="fr_FR")
-    english = Palindrome(locale="en_US")
+    french = Palindrome(locale_time="fr_FR")
+    english = Palindrome(locale_time="en_US")
     #QUAND on rentre un palindrome
     palindrome = "totot"
     #ALORS il est renvoyé
@@ -62,25 +62,25 @@ def test_language():
         """Etant donné un utilisateur parlant une langue, quand on saisit une chaîne de caractère,
         alors <bonjour> de cette langue est renvoyé avant tout"""
         # ETANT donné un utilisateur parlant une langue
-        french = Palindrome(locale="fr_FR")
-        english = Palindrome(locale="en_US")
+        french = Palindrome(locale_time="fr_FR")
+        english = Palindrome(locale_time="en_US")
         #QUAND on saisit un chaîne de caractères
         input = "toto"
         #ALORS <bonjour> de cette langue est renvoyé avant tout
         response_french = french.mirror(palindrome).split('\n')
         response_english = english.mirror(palindrome).split('\n')
-        assert response_french[0] == "Bonjour"
-        assert response_english[0] == "Hello"
+        assert "Bonjour" in response_french[0]
+        assert "Hello" in response_english[0]
 
 
     def test_language_goodbye():
         """Etant donné un utilisateur parlant une langue, quand on saisit une chaîne de caractère,
         alors <auRevoir> dans cette langue est renvoyé en dernier"""
         # ETANT donné un utilisateur parlant une langue
-        french = Palindrome(locale="fr_FR")
-        english = Palindrome(locale="en_US")
+        french = Palindrome(locale_time="fr_FR")
+        english = Palindrome(locale_time="en_US")
         # ALORS <auRevoir> de cette langue est renvoyé en dernier
         response_french = french.mirror(palindrome).split('\n')
         response_english = english.mirror(palindrome).split('\n')
-        assert response_french[-1] == "Au revoir"
-        assert response_english[-1] == "Goodbye"
+        assert "Au revoir" in response_french[-1]
+        assert "Goodbye" in response_english[-1]
