@@ -10,10 +10,22 @@ class Palindrome():
         self.locale = locale
 
     def say_hello(self):
-        return "Bonjour"
+        if self.locale == "fr_FR":
+            return "Bonjour"
+        else:
+            return "Hello"
 
     def say_goodbye(self):
-        return "Au revoir"
+        if self.locale == "fr_FR":
+            return "Au revoir"
+        else:
+            return "Goodbye"
+
+    def well_said(self):
+        if self.locale == "fr_FR":
+            return "Bien dit"
+        else:
+            return "Well said"
 
     def mirror(self, input: str):
         response = self.say_hello()
@@ -25,5 +37,4 @@ class Palindrome():
         response += f"\n{self.say_goodbye()}"
         return response
 
-    def well_said(self):
-        return "Bien dit"
+
